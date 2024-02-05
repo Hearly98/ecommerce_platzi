@@ -1,13 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal,inject} from '@angular/core';
+import { Product } from '../../models/product.model';
+import { CartService } from '../../services/cart.service';
+import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLinkWithHref, RouterLinkActive],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+//estado para el carrito
+hideSideMenu = signal(true);
+private cartService = inject(CartService);
+cart=this.cartService.cart;
+total=this.cartService.total;
+
+toogleSideMenu(){
+  //cambiar el estado del signal
+  this.hideSideMenu.update(prevState => !prevState)
+}
 
 }
