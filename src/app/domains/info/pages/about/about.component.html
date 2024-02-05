@@ -1,10 +1,12 @@
 <div class="px-10">
-    <h1 class="text-lg font-bold">About</h1>
-    <p class="text-sm"><span highlight>Lorem ipsum dolor sit amet consectetur adipisicing elit</span>. Obcaecati deserunt nobis, qui cupiditate, dolor delectus beatae reprehenderit labore quam consectetur totam et nesciunt? Laboriosam doloremque, quam a corrupti consequuntur maiores?</p>
-    <p class="text-sm">Nro de Clientes  <app-counter [duration]="duration()" [message]="message()" *ngIf="duration()>0"/></p>
-    <div>
-        <app-wave-audio audioUrl="assets/audio.mp3" />
-    </div>   
+  <h1 class="text-lg font-bold">About</h1>
+  <p class="text-sm"><span highlight>Lorem ipsum dolor sit amet consectetur adipisicing elit</span>. Obcaecati deserunt nobis, qui cupiditate, dolor delectus beatae reprehenderit labore quam consectetur totam et nesciunt? Laboriosam doloremque, quam a corrupti consequuntur maiores?</p>
+  <p class="text-sm">Nro de Clientes  @if (duration()>0) {
+    <app-counter [duration]="duration()" [message]="message()"/>
+  }</p>
+  <div>
+    <app-wave-audio audioUrl="assets/audio.mp3" />
+  </div>
 </div>
 
-  
+
